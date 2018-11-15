@@ -1,4 +1,4 @@
-package com.moyiguket.flink.issue;
+package com.moyiguket.flink.issue.connector;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,6 @@
-import com.moyiguket.flink.issue.FlinkESIssueCode;
+package com.moyiguket.flink.issue.test;
+
+import com.moyiguket.flink.issue.connector.FlinkESIssueCode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;

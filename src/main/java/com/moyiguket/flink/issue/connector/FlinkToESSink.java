@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package com.moyiguket.flink.issue;
+package com.moyiguket.flink.issue.connector;
 
 /**
  * Skeleton for a Flink Streaming Job.
