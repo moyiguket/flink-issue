@@ -14,6 +14,9 @@ import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrderness
 import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.streaming.api.windowing.triggers.Trigger;
+import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.junit.Test;
 
 /**
@@ -54,10 +57,10 @@ public class FlinkEventCountTest {
 
     DataStreamSource<MockData> mockDataDataStreamSource = env.addSource(new DataMockSource());
     mockDataDataStreamSource.assignTimestampsAndWatermarks(
-        new BoundedOutOfOrdernessTimestampExtractor<MockData>(Time.seconds(10)) {
+        new AscendingTimestampExtractor<MockData>() {
           @Override
-          public long extractTimestamp(MockData mockData) {
-            return mockData.getTimestamp();
+          public long extractAscendingTimestamp(MockData element) {
+            return element.getTimestamp();
           }
         });
 
