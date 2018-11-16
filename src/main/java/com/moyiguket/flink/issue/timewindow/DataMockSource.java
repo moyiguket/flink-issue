@@ -18,10 +18,11 @@ public class DataMockSource implements SourceFunction<MockData> {
       mockData.setCountry("country "+ThreadLocalRandom.current().nextInt(2,5));
       mockData.setId(ThreadLocalRandom.current().nextLong());
       mockData.setTimestamp(Instant.now().toEpochMilli());
+      // emit record with timestamp
       sourceContext.collectWithTimestamp(mockData,Instant.now().toEpochMilli());
 //      sourceContext.collect(mockData);
 
-      TimeUnit.SECONDS.sleep(10);
+      TimeUnit.SECONDS.sleep(3);
     }
   }
 
