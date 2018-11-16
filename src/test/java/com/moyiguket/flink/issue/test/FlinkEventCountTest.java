@@ -47,7 +47,7 @@ public class FlinkEventCountTest {
   public void testEventTime() throws Exception {
     StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-    env.enableCheckpointing(100); //
+    env.enableCheckpointing(10000); //
 
     DataStreamSource<MockData> mockDataDataStreamSource = env.addSource(new DataMockSource());
     mockDataDataStreamSource.assignTimestampsAndWatermarks(
@@ -60,7 +60,7 @@ public class FlinkEventCountTest {
 
     mockDataDataStreamSource.keyBy("country").window(
         SlidingEventTimeWindows.of(Time.seconds(30), Time.seconds(20), Time.hours(-8)))
-        .allowedLateness(Time.seconds(5))
+        .allowedLateness(Time.seconds(20))
         .process(
             new FlinkEventTimeCountFunction()).name("count elements");
 
