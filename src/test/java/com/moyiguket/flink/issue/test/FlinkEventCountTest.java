@@ -1,7 +1,7 @@
 package com.moyiguket.flink.issue.test;
 
 import com.moyiguket.flink.issue.timewindow.FlinkEventTimeCountFunction;
-import com.moyiguket.flink.issue.timewindow.MockData;
+import com.moyiguket.flink.issue.common.MockData;
 import com.moyiguket.flink.issue.timewindow.DataMockSource;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.TimeCharacteristic;
@@ -14,9 +14,6 @@ import org.apache.flink.streaming.api.functions.timestamps.BoundedOutOfOrderness
 import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.streaming.api.windowing.triggers.Trigger;
-import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;
-import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.junit.Test;
 
 /**

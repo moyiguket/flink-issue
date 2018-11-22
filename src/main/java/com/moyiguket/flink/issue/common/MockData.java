@@ -1,4 +1,4 @@
-package com.moyiguket.flink.issue.timewindow;
+package com.moyiguket.flink.issue.common;
 
 import java.io.Serializable;
 
